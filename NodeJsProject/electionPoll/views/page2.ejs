@@ -1,0 +1,167 @@
+<!-- Program to display the voting page and taking values-->
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <title>Voing Panel</title>
+
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+
+<body style="background-image: '/images/final'">
+
+    <h2 style="color:green">VoterId:
+        <%=vid%>
+    </h2>
+
+    <script>
+        $(document).ready(function () {
+
+            // On click of submit button 
+            $('#submit').click(function () {
+                console.log("entered");
+                var num = {};
+                num.candidateParty = $('input[name=party]:checked').val();
+                num.idv = localStorage.getItem('theid');
+                console.log(num);
+                $.ajax({
+                    type: 'post',
+                    url: '/addVote',
+                    data: num,
+                    success: function (data) {
+                        alert(data);
+                        window.location.href = "/api";
+                    },
+                    error: function (data) {
+                        alert(data);
+                        window.location.href = "/api";
+                    }
+                });
+            });
+        });
+    </script>
+
+    <!-- Tabular display of the parties -->
+    <div class="container">
+        <center>
+            <h1 style="color:dodgerblue"> VOTING PANEL</h1>
+            <table class="table table-bordered table-hover" style="font-size: 20px">
+                <thead>
+                    <tr style="color:blue; background-color:grey;">
+                        <th>Sl.No</th>
+                        <th>Party Names</th>
+                        <th>Party Signs</th>
+                        <th>Selection</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="success">
+                        <td>
+                            1
+                        </td>
+                        <td>
+                            <b>
+                                Halmidi Party
+                            </b>
+                        </td>
+                        <td>
+                            <img class="img-circle" src="/images/halmidi.jpg" class="login" width="50" height="50">
+                        </td>
+                        <td>
+                            <input type="radio" name="party" value="Halmidi Party" id="0" checked>
+
+                        </td>
+                    </tr>
+
+                    <tr class="danger">
+                        <td>
+                            2
+                        </td>
+                        <td>
+                            <b>
+                                Yuva Yojana
+                            </b>
+                        </td>
+                        <td>
+                            <img class="img-circle" src="/images/yuva2.jpeg" class="login" width="50" height="50">
+                        </td>
+                        <td>
+                            <input type="radio" name="party" value="Yuva Yojana" id="1">
+
+                        </td>
+                    </tr>
+
+                    <tr class="info">
+                        <td>
+                            3
+                        </td>
+                        <td>
+                            <b>
+                                Abhivrudhi Sangha
+                            </b>
+                        </td>
+                        <td>
+                            <img class="img-circle" src="/images/abhiv.jpg" class="login" width="50" height="50">
+                        </td>
+                        <td>
+
+                            <input type="radio" name="party" value="Abhivrudhi Sangha" id="2">
+
+                        </td>
+                    </tr>
+                    <tr class="warning">
+                        <td>
+                            4
+                        </td>
+                        <td>
+                            <b>
+                                Nootana Samaj
+                            </b>
+                        </td>
+                        <td>
+                            <img class="img-circle" src="/images/noothana.jpeg" class="login" width="50" height="50">
+                        </td>
+                        <td>
+
+                            <input type="radio" name="party" value="Nootana Samaj" id="3">
+
+                        </td>
+                    </tr>
+                    <tr class="active">
+                        <td>
+                            5
+                        </td>
+                        <td>
+                            <b>
+                                Others
+                            </b>
+                        </td>
+                        <td>
+                            <img class="img-circle" src="/images/oth.jpg" class="login" width="50" height="50">
+                        </td>
+                        <td>
+
+                            <input type="radio" name="party" value="Others" id="4">
+
+                        </td>
+                    </tr>
+                    </tr>
+                </tbody>
+            </table>
+            <br><br>
+            <input class="btn btn-danger btn-lg" type="button" name="Submit and Logout" id="submit" value="Submit and Logout">
+        </center>
+    </div>
+    </script>
+</body>
+
+</html>

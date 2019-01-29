@@ -1,0 +1,55 @@
+<!-- Program to display the chart by retrieving the data from the database -->
+<html>
+
+<head>
+   <title>Chart</title>  
+</head>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script language="JavaScript">
+
+   $(document).ready(function () {  
+      
+      // On click of chart
+      $.ajax({
+         type: "GET",
+         url: "/chart/fget",        
+         success: (data1) => {
+            console.log(data1);
+            var chart = {
+               plotBackgroundColor: null,
+               plotBorderWidth: null,
+               plotShadow: true
+            };
+            var title = {
+               text: 'Current Status'
+            };
+            var series = [{
+               type: 'pie',
+               name: 'Current Status of Election, 2018',
+               data: [
+                  [data1[0].candidateParty, data1[0].noOfVotes],
+                  [data1[1].candidateParty, data1[1].noOfVotes],
+                  [data1[2].candidateParty, data1[2].noOfVotes],
+                  [data1[3].candidateParty, data1[3].noOfVotes],
+                  [data1[4].candidateParty, data1[4].noOfVotes]
+               ]
+            }];
+            console.log(series);
+            var json = {};
+            json.chart = chart;
+            json.title = title;
+            json.series = series;
+
+            $('#container').highcharts(json);
+         }
+      });
+   });
+</script>
+
+<body>
+   <h1 style="color:red"><center>ELECTIONS</center></h1>
+   <div id="container" style="width: 550px; height: 400px; margin: 0 auto"></div>
+   <center>
+   <form><input type="submit" value="Back" class="btn btn-danger btn-lg"></form></center>
+</body>
+</html>

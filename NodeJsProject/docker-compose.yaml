@@ -1,0 +1,25 @@
+version: "3.3"
+
+services:
+
+# NodeJS App's Container
+ app:
+  image: 192.168.1.14:5000/app_image
+  ports:
+    - 8082:4003
+  volumes:
+    - ./electionPoll:/code
+  tty: true
+  privileged: true
+  hostname: node_app
+
+# MongoDB container
+ mongodb:
+  image: 192.168.1.14:5000/mongo_image
+  hostname: mongodb 
+  tty: true
+  privileged: true
+
+  
+
+   

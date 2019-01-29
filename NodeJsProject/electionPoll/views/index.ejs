@@ -1,0 +1,132 @@
+<!-- Code to display the Login Page -->
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+
+  <!-- Using different classes for styling the web page -->
+  <style>
+    
+    body {font-family: Arial, Helvetica, sans-serif;}
+    input[type=text], input[type=password] {
+      width: 30%;
+      padding: 12px 20px;
+      margin: 5px 0 22px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      color:red;
+      box-sizing: border-box;
+    }    
+    button:hover {
+      opacity: 0.8;
+    }    
+    body {
+      background-image: url('/images/final.jpg');
+      background-repeat:no-repeat;
+      background-size:cover;
+    }
+    .imgcontainer {
+      text-align: center;
+      margin: 50px 0 25px 0;
+    }  
+  </style>
+
+  <script language="javascript" type="text/javascript">
+    $(document).ready(function () {
+
+      // On click of login authentication is being checked
+      $("#log").click(function () {
+        var person = { vid: $("#VID").val(), psw: $("#PSW").val() };
+        console.log(person);
+        $.ajax({
+          url: "/authenticate",
+          type: 'POST',
+          data: person,
+          success: function (data) {
+            localStorage.setItem('thetoken', data.token);
+            var tok = localStorage.getItem('thetoken');
+            localStorage.setItem('theid', data.id);
+            var idv = localStorage.getItem('theid');
+            console.log(data);
+            $.ajax({
+              url: "/verify",
+              type: "GET",
+              headers: { 'tok': tok },
+              success: function (response) {
+                $("body").replaceWith(response);
+              },
+              error: function (err, obj) {
+                console.log("Problem in verification")
+              }
+            })
+          },
+          error: function (err) {
+            console.log("Problem with authentication")
+          }
+        })
+      })
+
+      // On click of Register, new data is added onto the data base
+      $("#reg").click(function () {
+        var register = { vid: $("#VID").val(), psw: $("#PSW").val() };
+        $.ajax({
+          url: "/addData",
+          type: 'POST',
+          data: register,
+          success: function (regData) {
+            console.log(regData);
+            window.location.reload();
+          },
+          error: function (err) {
+            console.log(err);
+          }
+        })
+      })
+
+      //  On click of chart, the current status of votes is being displayed
+      $("#cha").click(function () {
+        $.ajax({
+          type: "GET",
+          url: "/home",
+          success: (data1) => {
+            // $("html").html(data1);
+            $("body").replaceWith(data1);
+          },
+          error: (data1) => {
+            console.log(data1);
+          }
+        });
+      })
+    })
+  </script>
+
+</head>
+
+<body>
+  <center>
+
+    <!-- Creating the login Form -->
+    
+    <form>
+      <div class="imgcontainer"><img class="img-circle" src="/images/vote.jpeg" class="login" width="170" height="170"></div>          
+        <label for="vid"><b><h3 style="color:chartreuse; font-size: 35px">Voter-Id</h3></b></label><br>                  
+        <input type="text" placeholder="Enter Voter-Id" name="vid" id="VID" required><br>
+        <label for="psw"><b><h3 style="color: chartreuse; font-size: 35px">Password</h3></b></label><br>
+        <input type="password" placeholder="Enter Password" name="psw" id="PSW" required><br><p>
+        <input type="button" class="btn btn-success btn-lg" value="Login" id="log">
+        <input type="button" class="btn btn-primary btn-lg" value="Register" id="reg"></p>
+        <p><input type="button" class="btn btn-danger btn-lg" value="Chart" id="cha"></p>    
+
+      </div>
+    </form>
+  
+  </center>
+</body>
+
+</html>
