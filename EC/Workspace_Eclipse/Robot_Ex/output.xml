@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot rpa="false" generated="20190403 14:14:07.074" generator="Robot 3.1.1 (Python 2.7.15rc1 on linux2)">
+<suite source="/home/sushma/EC/Workspace_Eclipse/Robot_Ex" id="s1" name="Robot Ex">
+<suite source="/home/sushma/EC/Workspace_Eclipse/Robot_Ex/Test2" id="s1-s1" name="Test2">
+<suite source="/home/sushma/EC/Workspace_Eclipse/Robot_Ex/Test2/Suite2.robot" id="s1-s1-s1" name="Suite2">
+<kw type="setup" name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Starting Suite</arg>
+</arguments>
+<msg timestamp="20190403 14:14:07.610" level="INFO">Starting Suite</msg>
+<status status="PASS" endtime="20190403 14:14:07.610" starttime="20190403 14:14:07.609"></status>
+</kw>
+<test id="s1-s1-s1-t1" name="T1">
+<kw type="setup" name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Starting Testcase</arg>
+</arguments>
+<msg timestamp="20190403 14:14:07.611" level="INFO">Starting Testcase</msg>
+<status status="PASS" endtime="20190403 14:14:07.612" starttime="20190403 14:14:07.611"></status>
+</kw>
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the given ``url``.</doc>
+<arguments>
+<arg>${URL}</arg>
+<arg>ff</arg>
+</arguments>
+<msg timestamp="20190403 14:14:07.612" level="INFO">Opening browser 'ff' to base url 'https://opensource-demo.orangehrmlive.com'.</msg>
+<status status="PASS" endtime="20190403 14:14:22.512" starttime="20190403 14:14:07.612"></status>
+</kw>
+<kw name="LoginKW">
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>name=txtUsername</arg>
+<arg>@{CREDENTIALS}[0]</arg>
+</arguments>
+<msg timestamp="20190403 14:14:22.513" level="INFO">Typing text 'admin' into text field 'name=txtUsername'.</msg>
+<status status="PASS" endtime="20190403 14:14:22.602" starttime="20190403 14:14:22.513"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>name=txtPassword</arg>
+<arg>&amp;{LOGINDATA}[pwd]</arg>
+</arguments>
+<msg timestamp="20190403 14:14:22.604" level="INFO">Typing text 'admin123' into text field 'name=txtPassword'.</msg>
+<status status="PASS" endtime="20190403 14:14:22.629" starttime="20190403 14:14:22.603"></status>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks button identified by ``locator``.</doc>
+<arguments>
+<arg>id=btnLogin</arg>
+</arguments>
+<msg timestamp="20190403 14:14:22.630" level="INFO">Clicking button 'id=btnLogin'.</msg>
+<status status="PASS" endtime="20190403 14:14:25.812" starttime="20190403 14:14:22.630"></status>
+</kw>
+<status status="PASS" endtime="20190403 14:14:25.813" starttime="20190403 14:14:22.512"></status>
+</kw>
+<kw name="Location Should Contain" library="SeleniumLibrary">
+<doc>Verifies that current URL contains ``expected``.</doc>
+<arguments>
+<arg>https://opensource-demo.orangehrmlive.com/index.php/</arg>
+</arguments>
+<msg timestamp="20190403 14:14:25.819" level="INFO">Current location contains 'https://opensource-demo.orangehrmlive.com/index.php/'.</msg>
+<status status="PASS" endtime="20190403 14:14:25.819" starttime="20190403 14:14:25.813"></status>
+</kw>
+<kw name="Title Should Be" library="SeleniumLibrary">
+<doc>Verifies that current page title equals ``title``.</doc>
+<arguments>
+<arg>OrangeHRM</arg>
+</arguments>
+<msg timestamp="20190403 14:14:25.822" level="INFO">Page title is 'OrangeHRM'.</msg>
+<status status="PASS" endtime="20190403 14:14:25.823" starttime="20190403 14:14:25.819"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>10</arg>
+</arguments>
+<msg timestamp="20190403 14:14:35.824" level="INFO">Slept 10 seconds</msg>
+<status status="PASS" endtime="20190403 14:14:35.825" starttime="20190403 14:14:25.823"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click element identified by ``locator``.</doc>
+<arguments>
+<arg>xpath=//b[.=("PIM")]</arg>
+</arguments>
+<msg timestamp="20190403 14:14:35.827" level="INFO">Clicking element 'xpath=//b[.=("PIM")]'.</msg>
+<status status="PASS" endtime="20190403 14:14:38.941" starttime="20190403 14:14:35.826"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until element ``locator`` is visible.</doc>
+<arguments>
+<arg>xpath=//*[@id="empsearch_employee_name_empName"]</arg>
+</arguments>
+<status status="PASS" endtime="20190403 14:14:38.975" starttime="20190403 14:14:38.941"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>xpath=//*[@id="empsearch_employee_name_empName"]</arg>
+<arg>Sushma K</arg>
+</arguments>
+<msg timestamp="20190403 14:14:38.975" level="INFO">Typing text 'Sushma K' into text field 'xpath=//*[@id="empsearch_employee_name_empName"]'.</msg>
+<status status="PASS" endtime="20190403 14:14:39.008" starttime="20190403 14:14:38.975"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>xpath=//*[@id="empsearch_id"]</arg>
+<arg>31154</arg>
+</arguments>
+<msg timestamp="20190403 14:14:39.009" level="INFO">Typing text '31154' into text field 'xpath=//*[@id="empsearch_id"]'.</msg>
+<status status="PASS" endtime="20190403 14:14:39.032" starttime="20190403 14:14:39.008"></status>
+</kw>
+<kw name="Select From List By Index" library="SeleniumLibrary">
+<doc>Selects options from selection list ``locator`` by ``indexes``.</doc>
+<arguments>
+<arg>xpath=//*[@id="empsearch_employee_status"]</arg>
+<arg>1</arg>
+</arguments>
+<msg timestamp="20190403 14:14:39.033" level="INFO">Selecting options from selection list 'xpath=//*[@id="empsearch_employee_status"]' by index 1.</msg>
+<status status="PASS" endtime="20190403 14:14:39.286" starttime="20190403 14:14:39.033"></status>
+</kw>
+<kw name="Select From List By Index" library="SeleniumLibrary">
+<doc>Selects options from selection list ``locator`` by ``indexes``.</doc>
+<arguments>
+<arg>xpath=//*[@id="empsearch_termination"]</arg>
+<arg>2</arg>
+</arguments>
+<msg timestamp="20190403 14:14:39.288" level="INFO">Selecting options from selection list 'xpath=//*[@id="empsearch_termination"]' by index 2.</msg>
+<status status="PASS" endtime="20190403 14:14:39.559" starttime="20190403 14:14:39.287"></status>
+</kw>
+<kw name="Select Checkbox" library="SeleniumLibrary">
+<doc>Selects checkbox identified by ``locator``.</doc>
+<arguments>
+<arg>xpath=//*[@id="ohrmList_chkSelectRecord_4"]</arg>
+</arguments>
+<msg timestamp="20190403 14:14:39.561" level="INFO">Selecting checkbox 'xpath=//*[@id="ohrmList_chkSelectRecord_4"]'.</msg>
+<status status="PASS" endtime="20190403 14:14:39.799" starttime="20190403 14:14:39.560"></status>
+</kw>
+<kw name="Select Checkbox" library="SeleniumLibrary">
+<doc>Selects checkbox identified by ``locator``.</doc>
+<arguments>
+<arg>xpath=//*[@id="ohrmList_chkSelectRecord_5"]</arg>
+</arguments>
+<msg timestamp="20190403 14:14:39.802" level="INFO">Selecting checkbox 'xpath=//*[@id="ohrmList_chkSelectRecord_5"]'.</msg>
+<status status="PASS" endtime="20190403 14:14:40.041" starttime="20190403 14:14:39.800"></status>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks button identified by ``locator``.</doc>
+<arguments>
+<arg>xpath=//*[@id="resetBtn"]</arg>
+</arguments>
+<msg timestamp="20190403 14:14:40.044" level="INFO">Clicking button 'xpath=//*[@id="resetBtn"]'.</msg>
+<status status="PASS" endtime="20190403 14:14:40.673" starttime="20190403 14:14:40.043"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>5</arg>
+</arguments>
+<msg timestamp="20190403 14:14:45.674" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" endtime="20190403 14:14:45.675" starttime="20190403 14:14:40.673"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click element identified by ``locator``.</doc>
+<arguments>
+<arg>xpath=//b[.=("Recruitment")]</arg>
+</arguments>
+<msg timestamp="20190403 14:14:45.694" level="INFO">Clicking element 'xpath=//b[.=("Recruitment")]'.</msg>
+<status status="PASS" endtime="20190403 14:14:48.916" starttime="20190403 14:14:45.677"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until element ``locator`` is visible.</doc>
+<arguments>
+<arg>xpath=//*[@id="candidateSearch_jobTitle"]</arg>
+</arguments>
+<status status="PASS" endtime="20190403 14:14:48.944" starttime="20190403 14:14:48.916"></status>
+</kw>
+<kw name="Select From List By Label" library="SeleniumLibrary">
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<arguments>
+<arg>xpath=//*[@id="candidateSearch_jobTitle"]</arg>
+<arg>CEO</arg>
+</arguments>
+<msg timestamp="20190403 14:14:48.946" level="INFO">Selecting options from selection list 'xpath=//*[@id="candidateSearch_jobTitle"]' by label CEO.</msg>
+<status status="PASS" endtime="20190403 14:14:49.191" starttime="20190403 14:14:48.945"></status>
+</kw>
+<kw name="Select From List By Index" library="SeleniumLibrary">
+<doc>Selects options from selection list ``locator`` by ``indexes``.</doc>
+<arguments>
+<arg>xpath=//*[@id="candidateSearch_status"]</arg>
+<arg>9</arg>
+</arguments>
+<msg timestamp="20190403 14:14:49.193" level="INFO">Selecting options from selection list 'xpath=//*[@id="candidateSearch_status"]' by index 9.</msg>
+<status status="PASS" endtime="20190403 14:14:49.504" starttime="20190403 14:14:49.192"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click element identified by ``locator``.</doc>
+<arguments>
+<arg>xpath=//*[@id="candidateSearch_fromDate"]</arg>
+</arguments>
+<msg timestamp="20190403 14:14:49.506" level="INFO">Clicking element 'xpath=//*[@id="candidateSearch_fromDate"]'.</msg>
+<status status="PASS" endtime="20190403 14:14:49.762" starttime="20190403 14:14:49.505"></status>
+</kw>
+<kw name="Select From List By Index" library="SeleniumLibrary">
+<doc>Selects options from selection list ``locator`` by ``indexes``.</doc>
+<arguments>
+<arg>class=ui-datepicker-month</arg>
+<arg>2</arg>
+</arguments>
+<msg timestamp="20190403 14:14:49.763" level="INFO">Selecting options from selection list 'class=ui-datepicker-month' by index 2.</msg>
+<status status="PASS" endtime="20190403 14:14:50.038" starttime="20190403 14:14:49.762"></status>
+</kw>
+<kw name="Select From List By Label" library="SeleniumLibrary">
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<arguments>
+<arg>class=ui-datepicker-year</arg>
+<arg>1996</arg>
+</arguments>
+<msg timestamp="20190403 14:14:50.039" level="INFO">Selecting options from selection list 'class=ui-datepicker-year' by label 1996.</msg>
+<status status="PASS" endtime="20190403 14:14:50.285" starttime="20190403 14:14:50.038"></status>
+</kw>
+<kw name="Click Link" library="SeleniumLibrary">
+<doc>Clicks a link identified by ``locator``.</doc>
+<arguments>
+<arg>link=6</arg>
+</arguments>
+<msg timestamp="20190403 14:14:50.288" level="INFO">Clicking link 'link=6'.</msg>
+<status status="PASS" endtime="20190403 14:14:50.706" starttime="20190403 14:14:50.287"></status>
+</kw>
+<kw name="Select Checkbox" library="SeleniumLibrary">
+<doc>Selects checkbox identified by ``locator``.</doc>
+<arguments>
+<arg>xpath=//*[@id="ohrmList_chkSelectRecord_1_"]</arg>
+</arguments>
+<msg timestamp="20190403 14:14:50.707" level="INFO">Selecting checkbox 'xpath=//*[@id="ohrmList_chkSelectRecord_1_"]'.</msg>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes screenshot of the current page and embeds it into log file.</doc>
+<msg timestamp="20190403 14:14:50.818" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-58.png"&gt;&lt;img src="selenium-screenshot-58.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20190403 14:14:50.819" starttime="20190403 14:14:50.714"></status>
+</kw>
+<msg timestamp="20190403 14:14:50.971" level="FAIL">Checkbox with locator 'xpath=//*[@id="ohrmList_chkSelectRecord_1_"]' not found.</msg>
+<status status="FAIL" endtime="20190403 14:14:50.971" starttime="20190403 14:14:50.707"></status>
+</kw>
+<kw type="teardown" name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Closing Testcase</arg>
+</arguments>
+<msg timestamp="20190403 14:14:50.994" level="INFO">Closing Testcase</msg>
+<status status="PASS" endtime="20190403 14:14:50.994" starttime="20190403 14:14:50.973"></status>
+</kw>
+<status status="FAIL" endtime="20190403 14:14:50.995" critical="yes" starttime="20190403 14:14:07.610">Checkbox with locator 'xpath=//*[@id="ohrmList_chkSelectRecord_1_"]' not found.</status>
+</test>
+<kw type="teardown" name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Closing Suite</arg>
+</arguments>
+<msg timestamp="20190403 14:14:50.996" level="INFO">Closing Suite</msg>
+<status status="PASS" endtime="20190403 14:14:50.996" starttime="20190403 14:14:50.995"></status>
+</kw>
+<status status="FAIL" endtime="20190403 14:14:50.996" starttime="20190403 14:14:07.131"></status>
+</suite>
+<status status="FAIL" endtime="20190403 14:14:50.997" starttime="20190403 14:14:07.130"></status>
+</suite>
+<status status="FAIL" endtime="20190403 14:14:50.998" starttime="20190403 14:14:07.110"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="1" pass="0">Critical Tests</stat>
+<stat fail="1" pass="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat fail="1" id="s1" name="Robot Ex" pass="0">Robot Ex</stat>
+<stat fail="1" id="s1-s1" name="Test2" pass="0">Robot Ex.Test2</stat>
+<stat fail="1" id="s1-s1-s1" name="Suite2" pass="0">Robot Ex.Test2.Suite2</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
